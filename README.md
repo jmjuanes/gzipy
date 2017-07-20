@@ -40,11 +40,11 @@ gzipy.decompress('./document.pdf.gz', './document.pdf', function(error)
 
 ## API 
 
-## gzipy.compress(input, output, callback)
+### gzipy.compress(input, output, callback)
 
 Compress the `input` file and save it to `output`. The callback method will be called when the process is completed or when there is an error.
 
-## gzipy.decompress(input, output, callback)
+### gzipy.decompress(input, output, callback)
 
 Decompress the `input` file and save it to `output`. The callback method will be called when the process is completed or when there is an error.
 
