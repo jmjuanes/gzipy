@@ -34,7 +34,6 @@ var process_file = function(input, output, stream, cb)
 
       //Destroy the streams
       reader.destroy();
-      stream.destroy();
       writer.destroy();
 
       //Do the callback
