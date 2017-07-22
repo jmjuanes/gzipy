@@ -7,5 +7,13 @@
   "main": "./index.js",
   "repository": { "type": "git", "url": "https://github.com/jmjuanes/gzipy" },
   "dependencies": { },
+  "devDependencies":
+  {
+    "mocha": "3.4.2"
+  },
+  "scripts":
+  {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
   "license": "MIT"
 }
