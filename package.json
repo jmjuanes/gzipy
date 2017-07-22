@@ -1,6 +1,6 @@
 {
   "name": "gzipy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A basic GZip compress and decompress library",
   "keywords": [ "gzip", "zip", "gz", "compress", "decompress" ],
   "author": "Josemi Juanes <josemijuanes@gmail.com>",
