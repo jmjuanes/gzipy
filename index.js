@@ -17,20 +17,45 @@ var process_file = function(input, output, stream, cb)
   //Create the write stream
   var writer = fs.createWriteStream(output);
 
+  //Completed boolean
+  var completed = false;
+
+  //Done method
+  var done = function(error)
+  {
+    //Check the error
+    if(typeof error === 'undefined'){ error = null; }
+
+    //Check if process is completed
+    if(completed === false)
+    {
+      //Set completed as true
+      completed = true;
+
+      //Destroy the streams
+      reader.destroy();
+      stream.destroy();
+      writer.destroy();
+
+      //Do the callback
+      return cb(error);
+    }
+  };
+
   //Compress or decompress the input file and save to the output file
   reader.pipe(stream).pipe(writer);
 
   //Reader process error
-  reader.on('error', function(error){ return cb(error); });
+  reader.on('error', done);
 
   //Stream process error
-  stream.on('error', function(error){ return cb(error); });
+  stream.on('error', done);
 
   //Handle the error
-  writer.on('error', function(error){ return cb(error); });
+  writer.on('error', done);
 
   //Finish event
-  writer.on('finish', function(){ return cb(null); });
+  writer.on('finish', done);
 };
 
 //Compress a file
